@@ -18,10 +18,9 @@ contains
     integer :: i
     call shr_abort_abort(message)
   end subroutine torch_model_load
-  subroutine torch_tensor_from_array(tensor, data, layout, i)
+  subroutine torch_tensor_from_array(tensor, data, i)
     type(torch_tensor) :: tensor
     real(r8) :: data(:,:)
-    integer :: layout(:)
     integer :: i
     call shr_abort_abort(message)
   end subroutine torch_tensor_from_array
