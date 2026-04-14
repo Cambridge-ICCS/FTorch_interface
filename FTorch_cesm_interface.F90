@@ -1,7 +1,7 @@
 module FTorch_cesm_interface
 #ifdef USE_FTORCH
   use ftorch,         only: torch_kCPU, torch_tensor, torch_model, torch_tensor_from_array
-  use ftorch,         only: torch_model_load, torch_model_forward
+  use ftorch,         only: torch_model_load, torch_model_forward, torch_delete
 #else
   use shr_abort_mod, only : shr_abort_abort
   use shr_kind_mod, only : r8 => shr_kind_r8
@@ -30,6 +30,10 @@ contains
     type(torch_tensor) :: tensor_in(:), tensor_out(:)
     call shr_abort_abort(message)
   end subroutine torch_model_forward
+  subroutine torch_delete(tensor)
+    type(torch_tensor) :: tensor
+    call shr_abort_abort(message)
+  end subroutine torch_delete
 
 #endif
 end module FTorch_cesm_interface
